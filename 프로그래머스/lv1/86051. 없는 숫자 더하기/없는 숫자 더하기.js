@@ -7,6 +7,5 @@ function solution(numbers) {
     for(let y = 0 ; y <10;y++){
         if(arr[y]===1) answer += y
     }
-    console.log(arr)
     return answer;
 }
