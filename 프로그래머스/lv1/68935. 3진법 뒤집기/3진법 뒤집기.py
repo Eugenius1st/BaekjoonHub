@@ -1,7 +1,4 @@
-import sys
-from itertools import combinations
-
-def solution(n):
+def solution(n): #자바스크립트에서 내가 짠거랑 똑같이 적었는데 되더라..... 걍 MAX int 문제인걸로
     num = n
     answer = 0
     remainN = 0
