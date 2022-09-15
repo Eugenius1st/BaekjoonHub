@@ -1,8 +1,8 @@
 import sys
 
 
-def input():
-    return sys.stdin.readline().rstrip()
+#def input():
+#    return sys.stdin.readline().rstrip()
 
 # 3 1 4 3 2
 # 1 2 3 3 4
