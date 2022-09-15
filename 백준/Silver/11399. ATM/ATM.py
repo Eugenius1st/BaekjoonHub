@@ -1,20 +1,14 @@
 import sys
 
 
-#def input():
-#    return sys.stdin.readline().rstrip()
-
-# 3 1 4 3 2
-# 1 2 3 3 4
-
 N = int(input())
-arr = list(map(int,input().split()))
-res = 0
-accu = 0
+line = list(map(int,input().split()))
+acc = 0
+answer = 0
 
-arr.sort()
+line.sort()
 
-for x in arr:
-    accu += x
-    res += accu
-print(res)
+for x in line:
+    acc += x
+    answer += acc
+print(answer)
