@@ -5,7 +5,6 @@ M, N = map(int,input().split())
 s = []
 
 def dfs(st):
-    if(len(s)>1 and s[0]>s[1]): return
     if len(s)==N :
         print(' '.join(map(str,s)))
         return 
