@@ -1,12 +1,32 @@
 import sys
-from collections import deque
 
-n = int(input())
-arr = deque(list(range(1,n+1)))
+def enqueue(x):
+    global rear
+    if (rear+1)%arrSize != front:#is not full
+        rear = (rear+1)%arrSize
+        arr[rear]=x
+
+def dequeue():
+    global front
+    if front == rear:#empty
+        #print(arr[front])
+        sys.exit()
+    front = (front+1)%arrSize
+    save = arr[front]
+    #arr[front] = ""
+    return save
+
+arr = list(range(int(input())+1))
+arrSize = len(arr)
+front = 0
+rear = arrSize-1
 tmp = 0
 
-while len(arr)>1:
-    print(arr.popleft(),end=" ") 
-    tmp = arr.popleft()
-    arr.append(tmp)
-print(arr.popleft()) #여기네..
+while rear!=front:
+    print(dequeue(), end=" ")
+    tmp = dequeue()
+    if(rear==front):
+        break
+    enqueue(tmp)
+print(tmp)
+
