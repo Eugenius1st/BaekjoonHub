@@ -1,20 +1,48 @@
-visited = []
+# DFS
+# visited = []
 
-def DFS(node,computers):
-    for x in range(len(computers[node])):
-        if x != node and computers[node][x]==1 and x not in visited:
-            visited.append(x)
-            DFS(x,computers)
+# def DFS(node,computers):
+#     for x in range(len(computers[node])):
+#         if x != node and computers[node][x]==1 and x not in visited:
+#             visited.append(x)
+#             DFS(x,computers)
+    
+
+# def solution(n, computers):
+#     answer = 0
+#     for i in range(n):
+#         if i not in visited:
+#             answer+=1
+#             visited.append(i)
+#             DFS(i,computers)
+
+#     return answer
+
+
+# BFS
+from collections import deque
+
+def BFS(node,computers,visited,n):
+    visited.append(node)
+    haveToVisit = deque([])
+    haveToVisit.append(node)
+    while haveToVisit:
+        tmpNum = haveToVisit.popleft()
+        visited.append(tmpNum)
+        for x in range(n):
+            if x != tmpNum and computers[tmpNum][x]==1 and x not in visited:
+                haveToVisit.append(x)
+        
     
 
 def solution(n, computers):
+    visited = []
     answer = 0
     for i in range(n):
         if i not in visited:
             answer+=1
-            visited.append(i)
-            DFS(i,computers)
-
+            BFS(i,computers,visited,n)
+    print(answer)
     return answer
 # 테스트 1
 # 입력값 〉 3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]
