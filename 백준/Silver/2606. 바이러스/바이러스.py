@@ -1,27 +1,17 @@
-import sys
+def DFS(visited, node, cnt):
+    if not visited[node]:
+        visited[node] = 1
+        for i in arr[node]:
+            DFS(visited, i, cnt+1)
 
-input = sys.stdin.readline
-    # 방문하지 않은 노드라면 재귀 호출
-
-n = int(input())
-m = int(input())
-# 정점, 연결 수
-graph = [[] for _ in range(n+1)]
-visitedG = []
-
-for i in range(m):
-    a, b = map(int,input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-#print(graph)
-
-def DFS(graph, curNode, visited ): # 인자로 그래프, 현재노드, 방문그래프
-    visited.append(curNode)
-    graph[curNode].sort()
-    # 현재 노드와 인접한 노드 확인
-    for linkNode in graph[curNode]:
-
-        if linkNode not in visited:
-            DFS(graph, linkNode, visited)
-DFS(graph, 1, visitedG)
-print(len(visitedG)-1)
+if __name__ == "__main__":
+    N = int(input()) # 노드 개수
+    M = int(input()) # 간선 개수
+    arr = [[] for _ in range(N+1)]
+    visited = [0]*(N+1)
+    for i in range(M):
+        a,b = map(int,input().split())
+        arr[a].append(b)
+        arr[b].append(a)
+    DFS(visited, 1, 1)
+    print(sum(visited)-1)
