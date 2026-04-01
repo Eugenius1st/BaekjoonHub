@@ -4,11 +4,11 @@ def solution(phone_book):
         dic[i] = True
     for i in phone_book:
         tmp = ""
-        if i in dic :
-            continue
-        for j in i:
-            tmp += j
+        for j in range(len(i)-1):
+            tmp += i[j]
             if tmp in dic:
                 print(tmp)
-                return True
+                return False
+    else:
+        return True
             
