@@ -10,7 +10,7 @@ def solution(priorities, location):
         tmp = priorities.popleft()
         idxTmp = idxs.popleft()
         
-        maxTmp = max(priorities) if len(priorities) > 0 else 0
+        maxTmp = max(priorities) if len(priorities) > 0 else 0  # 항상 마지막 요소를 고려하면서 생각해! 배열이 비어있을 수도있고. 이부분에서 자주 헷갈리는 듯
         if maxTmp <= tmp:
             cnt += 1
             if idxTmp == location:
